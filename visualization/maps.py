@@ -3,9 +3,8 @@ import numpy as np
 from io import BytesIO
 import urllib.request
 import matplotlib.pyplot as plt
-import pandas as pd
+import os
 from lxml import etree
-from pathlib import Path
 import json
 file_path = r"/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/visualization"
 #输出路径
@@ -132,27 +131,28 @@ def maps_rues(file,centerLat, centerLon, scale,pixelS,size,k):
     ax.set_ylim(0, size * pixelS)
     plt.axis('off')
     #plt.show()
-    plt.savefig('/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/picture/'+str(k)+'.png')
+    #plt.savefig('/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/picture/'+str(k)+'.png')
 
 if __name__ == "__main__":
 
     path_perso='/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/data'
     np.set_printoptions(precision=2,linewidth=5000)
 
-    datadir = Path(path_perso)
-    files = [str(f) for f in datadir.glob('*.xml') if f]
-    print(files)
-
-    centerLat, centerLon = (48.585, 7.74534)
-    scale = 15
-    pixelS = 1
-    size = 640
-    Gmap(centerLat, centerLon, scale, pixelS, size, True,'/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/visualization/projet.png')
-    i=0
+    datadir = os.listdir(path_perso)
+    files = [str(f) for f in datadir if os.path.splitext(f)[1].lower()==".xml"]
     for file in files:
+        print(file)
 
-        maps_rues(file,centerLat, centerLon, scale,pixelS,size,i)
-        i=i+1
+    # centerLat, centerLon = (48.585, 7.74534)
+    # scale = 15
+    # pixelS = 1
+    # size = 640
+    # Gmap(centerLat, centerLon, scale, pixelS, size, True,'/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/visualization/projet.png')
+    # i=0
+    # for file in files:
+    #
+    #     maps_rues(file,centerLat, centerLon, scale,pixelS,size,i)
+    #     i=i+1
 
 
 
