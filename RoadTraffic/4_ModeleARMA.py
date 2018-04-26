@@ -9,7 +9,7 @@ import os.path
 import numpy as np
 
 
-work_path = '/Users/yang/PycharmProjects/FirstProjet/Test/third_month'
+work_path = '/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/RoadTraffic'
 file_name = "Ident_15_new.csv"
 encoding = "UTF-8"
 
@@ -23,7 +23,7 @@ df[0] = pd.to_datetime(df[0])
 df[1]=pd.to_numeric(df[1])
 
 temp_df = pd.Series(data=df[1].values, index=df[0].values)
-print(temp_df)
+print(type(temp_df))
 
 fig = plt.figure(figsize=(12,8))
 ax1 = fig.add_subplot(211)

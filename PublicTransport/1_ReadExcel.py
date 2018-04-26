@@ -62,14 +62,15 @@ if __name__ == "__main__":
 
 
     bus63=res_dict['Calendrier Bus Ligne 63']
+    bus63.to_csv('bus63.csv', sep='\t', encoding='utf-8')
     # print(number_of_tickets.index)
     # plt.plot(number_of_tickets.index,number_of_tickets.values)
     # plt.show()
-
-    d = [go.Scatter(
-       x=bus63.index,
-       y=bus63.values)]
-    layout = dict(title="bus line 63 ")
-    fig = dict(data=d, layout=layout)
-    py.plot(fig, filename="exemple")
+    #
+    # d = [go.Scatter(
+    #    x=bus63.index,
+    #    y=bus63.values)]
+    # layout = dict(title="bus line 63 ")
+    # fig = dict(data=d, layout=layout)
+    # py.plot(fig, filename="exemple")
 
