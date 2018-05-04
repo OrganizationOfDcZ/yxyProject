@@ -8,7 +8,7 @@ from pathlib import Path
 client = MongoClient('mongodb://127.0.0.1:27017/')
 db = client.trafic_routier
 
-path_perso='/Users/yang/PycharmProjects/FirstProjet/Test/data'
+path_perso='/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/data'
 np.set_printoptions(precision=2,linewidth=5000)
 
 datadir = Path(path_perso)

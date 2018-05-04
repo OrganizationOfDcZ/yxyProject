@@ -62,8 +62,9 @@ def routier():
 
 
 def routes_statu(file):
-
-    tree = etree.parse(file)
+    path_perso = '/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/data'
+    f = os.path.join(path_perso, file)
+    tree = etree.parse(f)
     Rues=[]
     for element in tree.getiterator("ARC"):
 
@@ -86,8 +87,8 @@ def routes_statu(file):
     return free,fluid,normal,dense
 
 
-def maps_rues(file,centerLat, centerLon, scale,pixelS,size,k):
-    print(k)
+def maps_rues(file,centerLat, centerLon, scale,pixelS,size):
+    print(file)
     routes=routier()
     free,fluid,normal,dense=routes_statu(file)
 
@@ -131,7 +132,7 @@ def maps_rues(file,centerLat, centerLon, scale,pixelS,size,k):
     ax.set_ylim(0, size * pixelS)
     plt.axis('off')
     #plt.show()
-    #plt.savefig('/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/Picture/'+str(k)+'.png')
+    plt.savefig('/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/Pictures/'+str(file).rstrip('.xml')+'.png')
 
 if __name__ == "__main__":
 
@@ -140,19 +141,19 @@ if __name__ == "__main__":
 
     datadir = os.listdir(path_perso)
     files = [str(f) for f in datadir if os.path.splitext(f)[1].lower()==".xml"]
-    for file in files:
-        print(file)
 
-    # centerLat, centerLon = (48.585, 7.74534)
-    # scale = 15
-    # pixelS = 1
-    # size = 640
-    # Gmap(centerLat, centerLon, scale, pixelS, size, True,'/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/Visualization/projet.png')
-    # i=0
-    # for file in files:
-    #
-    #     maps_rues(file,centerLat, centerLon, scale,pixelS,size,i)
-    #     i=i+1
+    centerLat, centerLon = (48.585, 7.74534)
+    scale = 15
+    pixelS = 1
+    size = 640
+    Gmap(centerLat, centerLon, scale, pixelS, size, True,'/Users/yang/PycharmProjects/FirstProjet/Github/yxyProject/Visualization/projet.png')
+
+    for i in range(len(files)):
+        print(i)
+        if i%20 == 0:
+            maps_rues(files[i],centerLat, centerLon, scale,pixelS,size)
+        else:
+            pass
 
 
 
