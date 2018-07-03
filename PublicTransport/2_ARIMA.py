@@ -21,6 +21,7 @@ df[0] = pd.to_datetime(df[0])
 df[1]=pd.to_numeric(df[1])
 
 temp_df = pd.Series(data=df[1].values, index=df[0].values)
+temp_df.dropna(inplace=True)
 print(temp_df.values)
 
 fig = plt.figure(figsize=(12,8))

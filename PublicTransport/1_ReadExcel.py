@@ -61,8 +61,8 @@ if __name__ == "__main__":
     # exemple for visualizing the Tickets of bus line 63
 
 
-    bus63=res_dict['Calendrier Bus Ligne 63']
-    bus63.to_csv('bus63.csv', sep='\t', encoding='utf-8')
+    bus63=res_dict['Calendrier Bus']
+    bus63.to_csv('bus2016.csv', sep='\t', encoding='utf-8')
     # print(number_of_tickets.index)
     # plt.plot(number_of_tickets.index,number_of_tickets.values)
     # plt.show()
